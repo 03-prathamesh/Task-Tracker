@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+    
+      .navbar {
+        background-color: #228B22 !important;
+        display: flex !important; /* Use flexbox for alignment */
+        justify-content: space-between !important; /* Space items evenly */
+        align-items: center !important; /* Vertically center items */
+        height:70px !important;
+       }
+
+       a{
+          font-size:20px !important;
+          color:#fff !important;
+          
+          
+       }
+       body{
+        font-family: 'Poppins', sans-serif !important;
+        
+       }
+       .navbar ul {
+        list-style: none !important;
+        display: flex  !important;
+        margin-left: 1000px !important; /* Push the entire navbar content to the right */
+    }
+
+     h2{
+      text-align:center;
+      margin-top:47px;
+      font-size:40px;
+      color:#3498db;
+      text-decoration:underline;
+     }
+
+     .containerr {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-top: 154px;
+  }
+    
+  
+    h1 {
+      {% comment %} text-align: center;
+      margin-bottom: 20px; {% endcomment %}
+      color:black;
+    }
+  
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+  
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    li:last-child {
+      border-bottom: none;
+    }
+  
+    input[type="text"] {
+      width: 95%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      margin-top:90px;
+      margin-left:20px;
+    }
+
+  
+    button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-top: 15px;
+      align-content: center;
+      margin-left:20px;
+    }
+  
+    button:hover {
+      background-color: #45a049;
+    }
+    h3{
+       color: rgb(233, 19, 55);
+    }
+    h4{
+      color: blue;
+    }
+    p{
+      {% comment %} text-align: center; {% endcomment %}
+      {% comment %} margin-left:147px; {% endcomment %}
+      color:#3498db;
+      margin-left:20px;
+      margin-top:25px;
+    }
+
+    .p1{
+      color:red;
+    }
+
+    .big-container{
+        {% comment %} border:2px solid black; {% endcomment %}
+        width:1000px;
+        height:300px;
+        border-radius: 20px; 
+        box-shadow: 2px 3px 14px 0px rgba(125,116,125,1);
+        background-color:#f4fff8;
+    }
+
+    .b-container{
+      display:flex;
+      justify-content:center;
+      align-item:center;
+      margin-top:57px;
+    }
+    a:hover{
+      text-decoration:underline;
+    }
+
+
+      
+    </style>
+</head>
+<body>
+  {% comment %} <h1>{{msg}}</h1> {% endcomment %}
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Home</a>
+      <a class="navbar-brand" href="{% url "t_list" %}">Tasks</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          {% if not user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href='{% url "login_page" %}'><b>Login</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href= '{% url "signup_page" %}'><b>Signup</b></a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href='{% url "logout_page" %}'><b>Logout</b></a>
+            </li>
+
+            
+          {% endif %}
+
+        
+        </ul>
+      
+      </div>
+    </div>
+  </nav>
+     
+  <h2><b>TASK TRACKER</b></h2>
+<div class="b-container">
+<div class="big-container">
+<form  method="POST" action="{% url 'homepage' %}">
+  {% csrf_token %}
+  <div class="container">
+  {% comment %} <h1>To-Do List</h1> {% endcomment %}
+  <input type="text" id="task" name="task_name" placeholder="Enter a new task..." required>
+  <button id="addBtn" >Add Task</button>
+  <ul id="taskList"></ul>
+    
+<!-- Add this message block in your template -->
+{% if display %}
+<p class="p1"><b>To add a task, you need to log-in into the application.</b></p>
+{% endif  %}
+
+{% if added %}
+<p class="p2"><b>Your Task Added Successfully!</b></p>
+{% endif %}
+  
+  </div>
+
+</form>
+</div> 
+</div> 
+
+
+  
+
+
+  <!-- Include Bootstrap and jQuery scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+ 

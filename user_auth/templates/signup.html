@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Apply a background color to the entire page */
+        body {
+            background-color: #f4f4f4;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Style for the container */
+        .container {
+            max-width: 340px;
+            margin: 50px auto;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            {% comment %} box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); {% endcomment %}
+            box-shadow: 2px 3px 14px 0px rgba(125,116,125,1);
+        }
+        
+        /* Style for the "Welcome to Signup Page" heading */
+        h2 {
+            color: #228B22;
+            font-size: 28px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        /* Style for the form */
+        form {
+            text-align: left;
+        }
+        
+        /* Style for form elements */
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        input[type="text"],
+
+        input[type="password"] {
+            width: 100%;
+            padding: 4px;
+            margin-bottom: 0px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        /* Style for the Create button */
+        input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        input[type="email"] {
+            {% comment %} background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px; {% endcomment %}
+           
+            width: 100%;
+            padding: 4px;
+            margin-bottom: 0px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        
+        /* Add some spacing for better readability */
+        p {
+            margin-bottom: 10px;
+        }
+        
+        /* Center the form within the container */
+        .row {
+            display: flex;
+            justify-content: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2>welcome to sign-up page</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10"></div>
+            <form action="{% url "signup_page" %}" method="POST">
+                {% csrf_token %}
+                {% comment %} {{form.as_p}} {% endcomment %}
+                {%  for f in  form %}
+                   <p>
+                       {{f.label_tag}} {{f}} {{f.errors}}
+                   </p>
+                {% endfor %}
+                <input type="submit" value="create">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

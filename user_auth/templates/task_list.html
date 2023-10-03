@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        .navbar {
+            background-color: #228B22 !important;
+            display: flex !important; /* Use flexbox for alignment */
+            justify-content: space-between !important; /* Space items evenly */
+            align-items: center !important; /* Vertically center items */
+            height:70px !important;
+           }
+            
+           a{
+              font-size:20px !important;
+              color:#fff !important;
+              text-decoration:none !important;
+           }
+           .n{
+              font-size:20px !important;
+              color:#fff !important;
+             
+              text-decoration:none !important;
+              margin-left:42px;
+              
+           }
+
+           body{
+            font-family: 'Poppins', sans-serif !important;
+            margin:0;
+            padding:0;
+           }
+
+           .navbar ul {
+            list-style: none !important;
+            display: flex  !important;
+            margin-left: 1220px !important; /* Push the entire navbar content to the right */
+        }
+         
+        h3{
+            color: #231f20;
+            font-size:25px;
+            text-align:center;
+            {% comment %} text-decoration:underline; {% endcomment %}
+         }
+         h4{
+           color: #3498db;
+           font-size:19px;
+         }
+         p{
+           {% comment %} text-align: center; {% endcomment %}
+           margin-left:147px;
+           color:#3498db;
+         }
+         
+         .container2{
+            display:flex;
+            align-item:center;
+            justify-content:center;
+            background-color:#f4fff8;
+            {% comment %} border:2px solid black; {% endcomment %}
+            width:750px;
+            {% comment %} max-width:800px; {% endcomment %}
+            margin-top:30px;
+            {% comment %} box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow */ {% endcomment %}
+            {% comment %} background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); {% endcomment %}
+            box-shadow: 2px 3px 14px 0px rgba(125,116,125,1);
+            {% comment %} border: 2px solid #ccc; /* Border style */ {% endcomment %}
+            border-radius: 18px; /* Rounded corners */
+
+            {% comment %} box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Adjust the values for your desired shadow effect */ {% endcomment %}
+            
+         }
+
+         .container3{
+            display:flex;
+            align-item:center;
+            justify-content:center;
+            {% comment %} border:2px solid black; {% endcomment %}
+         }
+        
+         .delt{
+          font-size:16px !important;
+          margin-left:15px;
+          padding:4px 15px;
+          border-radius:9px;
+          text-decoration:none;
+          background-color: transparent; 
+          background-color:red;
+          color:white;
+          border:none;
+          border:1px solid black;
+         }
+
+         .delt:hover{
+          text-decoration: none;
+          cursor: pointer; 
+          background-color :#d00000;
+         }
+
+        
+
+        input[type="checkbox"]{
+            /* margin-top: px; */
+            display: inline;
+            position: absolute;
+            left: 20px;
+            top:15px;
+            
+        }
+        .sub-container{
+            position: relative;
+            /* display: flex;
+            text-align: center;
+            justify-content: center; */
+            width: 500px;
+            {% comment %} border: 2px solid #8e44ad; {% endcomment %}
+            height: 120px;
+            border-radius: 8px;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            /* margin-left: 1000px; */
+            margin-bottom:27px;
+            background-color: #d0f9c5;
+
+        }
+        h2{
+            display: inline;
+            position: absolute;
+            /* padding: 0; */
+            margin: 0;
+            top: 10px;
+            left: 43px;
+            font-size:20px;
+            color:#3498db;
+        }
+        .time{
+            margin-top: -10px;
+            position: absolute;
+            /* left: 6px; */
+            top: 23px;
+            right: 7px;
+            font-size:16px;
+        }
+        .delt{
+            /* margin-left: 400px; */
+            position: absolute;
+            top: 80px;
+            left: 16px;
+            padding: 1px  6px;
+            border-radius: 5px;
+            background-color: red;
+            color: white;
+            border:none;
+            
+            /* left: 200px; */
+            
+        }
+        button:hover{
+            background-color: rgb(221, 21, 21);
+            cursor: pointer;
+        }
+
+        .dates{
+            {% comment %} position: absolute; {% endcomment %}
+            {% comment %} top: 54px; {% endcomment %}
+            {% comment %} left: -440px; {% endcomment %}
+            font-size:17px;
+            position:absolute;
+            top:30px;
+            left:30px;
+            color:green;
+        }
+        .t{
+          text-decoration:underline;
+        }
+        .taskstatus{
+          position:absolute;
+          top:60px;
+          left:390px;
+          font-size:17px;
+          text-decoration:underline;
+
+        }
+
+        
+    
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class=" n navbar-brand" style="z-index: 99; position: absolute;top: 20px; left: -29px;" href="{% url "home-page" %}">Home</a>
+          <a class=" n navbar-brand" style="z-index: 99; position: absolute;top: 20px;left: 45px;" href="{% url "t_list" %}">Tasks</a>
+    
+          {% comment %} <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button> {% endcomment %}
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              {% if not user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href='{% url "login_page" %}'><b>Login</b></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href= '{% url "signup_page" %}'><b>Signup</b></a>
+                </li>
+              {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href='{% url "logout_page" %}'><b>Logout</b></a>
+                </li>
+    
+                
+              {% endif %}
+    
+            
+            </ul>
+          
+          </div>
+        </div>
+      </nav>
+
+      <div class="container3">
+ <div class="container2">     
+ <form action="{% url "t_list" %}">
+    {% csrf_token %}
+    {% if tasks %}
+   
+    <h3 class="t">Your Tasks</h3>
+    
+    {% comment %} <hr> {% endcomment %}
+    
+      {% comment %} {%  for task in tasks %}
+          
+          {% comment %} <h4 class="text">  <input type="checkbox" name="task_checkbox" value="{{ item.id }}">  {{forloop.counter}}] {{item}}--{{dt}}{{time}}</h4> {% endcomment %}
+          {% comment %} <h4 class="text">  <input type="checkbox" name="task_checkbox" value="{{ item.id }}">  {{forloop.counter}}] {{item}}--{{dt}}{{item.your_time}}</h4> this is also same work {% endcomment %}
+        
+          {% comment %} <h4 class="text">
+            <h4 style="display: inline-block; color:#3498db; margin-right: 19px;margin-bottom: -100px;margin-left:10px; "> <input type="checkbox" name="task_checkbox" value="{{ item.id }}">  {{forloop.counter}}] <b style="font-size:19px;">{{task.task_name}}</b></h4>
+            <h4 style="display: inline-block;color:#228B22; font-size:14px;">Time:{{ task.your_time}}|</h4>
+            <h4 style="display: inline-block;color:#228B22;font-size:14px;">Date: {{cur}}</h4>
+            <a class="delt" href="{% url "delete_task" task.id %}">Delete</a>
+            
+        </h4>
+        
+      {% endfor %} {% endcomment %} 
+      {% for  task in tasks  %}
+   
+        <div class="sub-container">
+            <input type="checkbox" onclick="tickcheckbox()" class="mycheckbox" name="task_checkbox" value="{{ item.id }}"> <b style="position: relative;top: 10px;"> {{forloop.counter}}]</b>
+            <h2 class="task" class="h22">{{task.task_name}}</h2>
+            <h3 class="time">{{ task.your_time}}</h3>
+            <h3 class="dates"> Date-{{cur}}</h3>
+            <a class="delt" href="{% url "delete_task" task.id %}">Delete</a>
+            <h5 class="taskstatus"></h5>
+        </div>
+      
+      
+      
+      
+      {% endfor %}
+
+   
+   {% endif %}
+
+</form>
+</div>  
+</div> 
+
+<script>
+
+  const checkbox=document.getElementsByClassName('mycheckbox');
+  const tsk=document.getElementsByClassName('task');
+  const tskstatus=document.getElementsByClassName('taskstatus');
+
+
+  function tickcheckbox(){
+    for(let i = 0;i<checkbox.length;i++){
+      if(checkbox[i].checked){
+        tsk[i].style.textDecoration = 'line-through';
+        tskstatus[i].innerHTML = "Completed";
+        tskstatus[i].style.color='green';
+        
+      }
+      else{
+        tsk[i].style.textDecoration = 'none';
+        tskstatus[i].innerHTML = "";
+      }
+    }
+  }
+
+</script>
+</body>
+</html>
