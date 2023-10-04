@@ -5,6 +5,8 @@ from .forms import *
 from .import models 
 from .models import Todo
 from django.http import Http404
+from django.contrib import messages
+
 # Create your views here.
 def home(request):
     return render(request,'home.html')
@@ -118,9 +120,31 @@ def task_list(request):
 
      
 def deleted_task(request,id):
-    if id:  
-        studn=Todo.objects.get(id=id)
-        studn.delete()
-        
-         
-    return redirect('t_list')
+    from django.shortcuts import render, redirect
+from user_auth.models import Todo
+
+def deleted_task(request, id):
+    if id:
+        user = request.user
+        try:
+            alll=Todo.objects.all()
+            times=timezone.now().time() 
+            current_date = timezone.now().date()
+            task = Todo.objects.get(id=id)
+            task.delete()
+            deleted = True
+        except Todo.DoesNotExist:
+            deleted = False
+
+        # Retrieve the updated list of tasks
+        tasks = Todo.objects.filter(user=user)
+
+        context = {
+             'tasks': tasks,
+             'delete': deleted,  # Pass the 'deleted' flag in the context
+             'all':alll,
+             'time':times,
+            'cur':current_date
+        }
+
+        return render(request, 'task_list.html', context)

@@ -96,7 +96,7 @@
             {% comment %} border:2px solid black; {% endcomment %}
             width:62.5vw;
             {% comment %} max-width:800px; {% endcomment %}
-            margin-top:30px;
+            margin-top:58px;
             {% comment %} box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow */ {% endcomment %}
             {% comment %} background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); {% endcomment %}
             box-shadow: 2px 3px 14px 0px rgba(125,116,125,1);
@@ -238,7 +238,7 @@
           {% comment %} color:black; {% endcomment %}
           font-size:20px;
           color: #3498db;
-          margin-top: 16vh;
+          margin-top: 14vh;
           margin-left: 31vw;
         }
       
@@ -303,6 +303,7 @@
                   font-weight:bold;
                   display:block;
                  }
+                 
                  {% comment %} .container2{
                   flex:1; {% endcomment %}
                  
@@ -336,6 +337,15 @@
                     left: auto;
                     font-size: 0.8rem;
                  }
+
+
+                 .delete-msg{
+                  font-size:18px;
+                  margin-top: 5em; 
+                   margin-left: 0em;
+                 }
+
+
  }
 
 
@@ -366,9 +376,11 @@
     </nav>
 
       <div class="container3">
-        {% comment %} {% if d %}
+        <div class="deltcont">
+           {% if delete %}
             <h2 class="delete-msg">Your Task Deleted Successfully</h2>
-        {% endif %} {% endcomment %}
+          {% endif %}
+        </div> 
  <div class="container2">     
  <form action="{% url "t_list" %}">
     {% csrf_token %}
