@@ -99,18 +99,18 @@ def task_list(request):
     else:
         user = request.user
         taskss = Todo.objects.filter(user=user)
-        t=Todo.objects.get(id=1)
-        todo_created_date = t.date
+        # t=Todo.objects.get(id=1)
+        # todo_created_date = t.date
         alll=Todo.objects.all()
-        times=t.your_time 
-        current_datetime = timezone.now().date()
+        times=timezone.now().time() 
+        current_date = timezone.now().date()
         context = {
-         'ts': t,  # Use colons (:) for assignment, not equal signs (=)
-          'dt': todo_created_date,  # Use colons (:) for assignment, not equal signs (=)
+         # Use colons (:) for assignment, not equal signs (=)
+        #   'dt': todo_created_date,  # Use colons (:) for assignment, not equal signs (=)
           'tasks': taskss,
           'all':alll,
            'time':times,
-           'cur':current_datetime
+           'cur':current_date
         }
         
 
@@ -121,6 +121,6 @@ def deleted_task(request,id):
     if id:  
         studn=Todo.objects.get(id=id)
         studn.delete()
-
-
+        
+         
     return redirect('t_list')

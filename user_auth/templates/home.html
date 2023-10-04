@@ -9,13 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
     
-      .navbar {
-        background-color: #228B22 !important;
-        display: flex !important; /* Use flexbox for alignment */
-        justify-content: space-between !important; /* Space items evenly */
-        align-items: center !important; /* Vertically center items */
-        height:70px !important;
-       }
+     
 
        a{
           font-size:20px !important;
@@ -24,19 +18,16 @@
           
        }
        body{
-        font-family: 'Poppins', sans-serif !important;
+        font-family: 'Poppins', sans-serif ;
         
        }
-       .navbar ul {
-        list-style: none !important;
-        display: flex  !important;
-        margin-left: 1000px !important; /* Push the entire navbar content to the right */
-    }
+      
 
      h2{
       text-align:center;
       margin-top:47px;
-      font-size:40px;
+      {% comment %} font-size:40px; {% endcomment %}
+      font-size: 250%;  
       color:#3498db;
       text-decoration:underline;
      }
@@ -49,7 +40,11 @@
       border-radius: 5px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       margin-top: 154px;
+      
   }
+    .container{
+      {% comment %} border:2px solid black; {% endcomment %}
+    }
     
   
     h1 {
@@ -80,7 +75,8 @@
       padding: 10px;
       border: 1px solid #ddd;
       border-radius: 3px;
-      margin-top:90px;
+      {% comment %} margin-top:90px; {% endcomment %}
+      margin-top: 12vh; 
       margin-left:20px;
     }
 
@@ -122,20 +118,210 @@
         {% comment %} border:2px solid black; {% endcomment %}
         width:1000px;
         height:300px;
+        {% comment %} height: 25vh; {% endcomment %}
         border-radius: 20px; 
         box-shadow: 2px 3px 14px 0px rgba(125,116,125,1);
         background-color:#f4fff8;
+       
+      {% comment %} border:2px solid black; {% endcomment %}
+
     }
 
     .b-container{
       display:flex;
       justify-content:center;
       align-item:center;
-      margin-top:57px;
+      {% comment %} margin-top:57px; {% endcomment %}
+      margin-top: 7.5vh;
     }
-    a:hover{
+    .a:hover{
       text-decoration:underline;
     }
+
+    body, ul {
+      margin: 0;
+      padding: 0;
+  }
+
+  /* Basic styling for the navbar */
+  a:hover{
+    text-decoration:underline;
+  }
+  .navbar {
+      display: flex;
+      
+      justify-content: space-between;
+      align-items: center;
+      background-color: #228B22;
+      color: #fff;
+      padding: 20px 30px;
+  }
+
+  /* Navigation links styling */
+  .nav-links {
+      list-style: none;
+      display: flex;
+  }
+
+  .nav-links li {
+      margin-right: 20px;
+  }
+
+  .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+  }
+
+  /* User links styling */
+  .user-links {
+      list-style: none;
+      display: flex;
+      margin-left: auto;
+  }
+
+  .user-links li {
+      margin-right: 30px;
+  }
+
+  .user-links a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+  }
+
+  /* Hamburger menu styling */
+  .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+  }
+
+  .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 2px 0;
+  }
+
+  /* Media query for responsiveness */
+  @media screen and (max-width: 768px) {
+      .user-links {
+          display: none;
+      }
+
+      .menu-toggle {
+          display: flex;
+      }  
+      /* .menu-toggle.menu-open .bar:nth-child(1){
+          transform: translateY(8px) rotate(45deg); 
+      }
+      .menu-toggle.menu-open .bar:nth-child(2){
+         opacity: 0;
+      }
+      .menu-toggle.menu-open .bar:nth-child(3){
+          transform: translateY(-8px) rotate(-45deg); 
+      } */
+      .user-links.menu-open{
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          right: 30px;
+          background-color: #3498DB;
+          width: 150px;
+          padding: 10px;
+          /* height: 150px;/ */
+          z-index: 1;
+        
+      }
+      .user-links li{
+          margin: 1rem 0;
+      }
+  }
+
+    {% comment %} @media screen and (max-width: 1361px){
+      .navbar-toggler{
+        
+      }
+    } {% endcomment %}
+    {% comment %} @media screen and (max-width: 768px) { {% endcomment %}
+
+      @media screen and (max-width: 768px) {
+        .user-links {
+            display: none;
+        }
+
+        .menu-toggle {
+            display: flex;
+        }  
+        /* .menu-toggle.menu-open .bar:nth-child(1){
+            transform: translateY(8px) rotate(45deg); 
+        }
+        .menu-toggle.menu-open .bar:nth-child(2){
+           opacity: 0;
+        }
+        .menu-toggle.menu-open .bar:nth-child(3){
+            transform: translateY(-8px) rotate(-45deg); 
+        } */
+        .user-links.menu-open{
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            right: 30px;
+            background-color: #3498DB;
+            width: 150px;
+            padding: 10px;
+            /* height: 150px;/ */
+            z-index: 1;
+          
+        }
+        .user-links li{
+            margin: 0 0;
+        }
+    
+         .container{
+             width:90%;
+             padding:0;
+             margin-left:0;
+             margin:0;
+         }
+
+         .big-container{
+          width:80%;
+          height:30vh;
+          {% comment %} height:100%; {% endcomment %}
+          {% comment %} height: auto; {% endcomment %}
+          margi-top:0vw;
+          
+         }
+         h2{
+          font-size:30px;
+          {% comment %} font-size:10%; {% endcomment %}
+          {% comment %} font-size:100%; {% endcomment %}
+          
+         }
+         #addBtn{
+          padding:1vw;
+          margin-left :25%;
+          padding-left: 14vw;
+          padding-right:12vw;
+          
+         }
+         #task{
+          margin-top:9vw;
+          margin-left:4.5vw;
+         }
+         .b-container{
+          {% comment %} margin-top:15vw; {% endcomment %}
+         }
+
+         #tk {
+          margin-left: -40%;
+         }
+    }
+    
 
 
       
@@ -143,38 +329,25 @@
 </head>
 <body>
   {% comment %} <h1>{{msg}}</h1> {% endcomment %}
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Home</a>
-      <a class="navbar-brand" href="{% url "t_list" %}">Tasks</a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          {% if not user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href='{% url "login_page" %}'><b>Login</b></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href= '{% url "signup_page" %}'><b>Signup</b></a>
-            </li>
-          {% else %}
-            <li class="nav-item">
-              <a class="nav-link" href='{% url "logout_page" %}'><b>Logout</b></a>
-            </li>
-
-            
-          {% endif %}
-
-        
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a class="a" href="#">Home</a></li>
+            <li><a  class="a" href="{% url "t_list" %}">Tasks</a></li>
         </ul>
-      
-      </div>
-    </div>
-  </nav>
+        <div class="user-links">
+          {% if not user.is_authenticated %}
+            <li><a class="a" href='{% url "login_page" %}'>Login</a></li>
+            <li><a class="a" href= '{% url "signup_page" %}'>Sign Up</a></li>
+          {% else %}
+            <li><a class="a" href= '{% url "logout_page" %}'>LogOut</a></li>
+          {% endif %}
+        </div>
+        <div class="menu-toggle">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </nav>
      
   <h2><b>TASK TRACKER</b></h2>
 <div class="b-container">
@@ -207,8 +380,14 @@
 
 
   <!-- Include Bootstrap and jQuery scripts -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const userLinks = document.querySelector('.user-links');
+
+    menuToggle.addEventListener('click', () => {
+        userLinks.classList.toggle('menu-open');
+    });
+</script>
 </body>
 </html>
  

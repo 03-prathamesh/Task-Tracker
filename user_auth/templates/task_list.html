@@ -7,39 +7,70 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        .navbar {
-            background-color: #228B22 !important;
-            display: flex !important; /* Use flexbox for alignment */
-            justify-content: space-between !important; /* Space items evenly */
-            align-items: center !important; /* Vertically center items */
-            height:70px !important;
-           }
-            
-           a{
-              font-size:20px !important;
-              color:#fff !important;
-              text-decoration:none !important;
-           }
-           .n{
-              font-size:20px !important;
-              color:#fff !important;
-             
-              text-decoration:none !important;
-              margin-left:42px;
-              
-           }
+   
+       
+      body{
+        font-family: 'Poppins', sans-serif ;
+        
+       }
+      
+
+     h2{
+      text-align:center;
+      margin-top:47px;
+      {% comment %} font-size:40px; {% endcomment %}
+      font-size: 250%;  
+      color:#3498db;
+      text-decoration:underline;
+     }
+
+     .containerr {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-top: 154px;
+      
+  }
+    .container{
+      {% comment %} border:2px solid black; {% endcomment %}
+    }
+    
+  
+    h1 {
+      {% comment %} text-align: center;
+      margin-bottom: 20px; {% endcomment %}
+      color:black;
+    }
+  
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+  
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    li:last-child {
+      border-bottom: none;
+    }  
+        
+           
 
            body{
-            font-family: 'Poppins', sans-serif !important;
+            font-family: 'Poppins', sans-serif;
             margin:0;
             padding:0;
            }
 
-           .navbar ul {
-            list-style: none !important;
-            display: flex  !important;
-            margin-left: 1220px !important; /* Push the entire navbar content to the right */
-        }
+          
          
         h3{
             color: #231f20;
@@ -63,7 +94,7 @@
             justify-content:center;
             background-color:#f4fff8;
             {% comment %} border:2px solid black; {% endcomment %}
-            width:750px;
+            width:62.5vw;
             {% comment %} max-width:800px; {% endcomment %}
             margin-top:30px;
             {% comment %} box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow */ {% endcomment %}
@@ -84,7 +115,7 @@
          }
         
          .delt{
-          font-size:16px !important;
+          font-size:16px ;
           margin-left:15px;
           padding:4px 15px;
           border-radius:9px;
@@ -117,7 +148,7 @@
             /* display: flex;
             text-align: center;
             justify-content: center; */
-            width: 500px;
+            width:41.67vw;
             {% comment %} border: 2px solid #8e44ad; {% endcomment %}
             height: 120px;
             border-radius: 8px;
@@ -134,7 +165,7 @@
             margin: 0;
             top: 10px;
             left: 43px;
-            font-size:20px;
+            font-size:1.5667vw;
             color:#3498db;
         }
         .time{
@@ -186,45 +217,158 @@
 
         }
 
+        /* Basic styling for the navbar */
+        .navbar {
+            display: flex;
+            
+            justify-content: space-between;
+            align-items: center;
+            background-color: #228B22;
+            color: #fff;
+            padding: 6px 30px;
+        }
+      
+        /* Navigation links styling */
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .delete-msg{
+          {% comment %} color:black; {% endcomment %}
+          font-size:20px;
+          color: #3498db;
+          margin-top: 16vh;
+          margin-left: 31vw;
+        }
+      
+        .nav-links li {
+            margin-right: 20px;
+        }
+      
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+      
+        /* User links styling */
+        .user-links {
+            list-style: none;
+            display: flex;
+            margin-left: auto;
+        }
+      
+        .user-links li {
+           
+            {% comment %} font-size:10px; {% endcomment %}
+            font-size:20px;
+        }
+
+        a{
+          {% comment %} margin-right: 30px; {% endcomment %}
+          font-size:20px;
+        }
+
+        .anchor:hover{
+          text-decoration:underline;
+        }
+      
+        .user-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+      
+        /* Hamburger menu styling */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+      
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 2px 0;
+        }
+        
+
+           
+ @media screen and (max-width: 768px) {
+                 .task{
+                  font-size:10px;
+                  top:16px;
+                  font-weight:bold;
+                  display:block;
+                 }
+                 {% comment %} .container2{
+                  flex:1; {% endcomment %}
+                 
+                 .delt{
+                   {% comment %} padding:2px; {% endcomment %}
+                 }
+
+                 .container{
+                  display:block;
+                 }
+
+                 .sub-container{
+                  width: 53.67vw;
+                 }
+                 .task{
+                     font-size:3.5vw;
+                     top:13px;
+                 }
+                 .time{
+                  top: 103px;
+                  left: auto;
+                  font-size: 0.8rem;
+                 }
+                 .dates{
+                  font-size: 12px;
+                  top: 47px;
+                  left: 1.8rem;
+                 }
+                 .delt{
+                  top: 89px;
+                    left: auto;
+                    font-size: 0.8rem;
+                 }
+ }
+
+
+        
         
     
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class=" n navbar-brand" style="z-index: 99; position: absolute;top: 20px; left: -29px;" href="{% url "home-page" %}">Home</a>
-          <a class=" n navbar-brand" style="z-index: 99; position: absolute;top: 20px;left: 45px;" href="{% url "t_list" %}">Tasks</a>
-    
-          {% comment %} <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button> {% endcomment %}
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              {% if not user.is_authenticated %}
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href='{% url "login_page" %}'><b>Login</b></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href= '{% url "signup_page" %}'><b>Signup</b></a>
-                </li>
-              {% else %}
-                <li class="nav-item">
-                  <a class="nav-link" href='{% url "logout_page" %}'><b>Logout</b></a>
-                </li>
-    
-                
-              {% endif %}
-    
-            
-            </ul>
-          
-          </div>
+  <nav class="navbar">
+        <ul class="nav-links">
+            <li><a  class="anchor" href="{% url "home-page" %}">Home</a></li>
+            <li><a class="anchor" href="{% url "t_list" %}">Tasks</a></li>
+        </ul>
+        <div class="user-links">
+          {% if not user.is_authenticated %}
+            <li><a href='{% url "login_page" %}'>Login</a></li>
+            <li><a href= '{% url "signup_page" %}'>Sign Up</a></li>
+          {% else %}
+            <li><a class="anchor" href= '{% url "logout_page" %}'>LogOut</a></li>
+          {% endif %}
         </div>
-      </nav>
+        <div class="menu-toggle">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </nav>
 
       <div class="container3">
+        {% comment %} {% if d %}
+            <h2 class="delete-msg">Your Task Deleted Successfully</h2>
+        {% endif %} {% endcomment %}
  <div class="container2">     
  <form action="{% url "t_list" %}">
     {% csrf_token %}
