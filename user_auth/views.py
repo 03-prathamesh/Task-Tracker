@@ -70,11 +70,12 @@ def homes(request):
         
         newtask=request.POST.get('task_name')   #html chay imput la je attribute made name dilele te 'task_name'
         users = request.user  # Get the logged-in user
-        tasksss = Todo.objects.filter(user=users).count()+1
+       
 
         add='True'
         task= models.Todo(task_name=newtask,user=users)
         task.save()  
+        tasksss = Todo.objects.filter(user=users).count()+1
     
        
 
