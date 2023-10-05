@@ -61,6 +61,7 @@ def homes(request):
     if request.method == "POST":
     #  
       if not request.user.is_authenticated:
+        tasksss=""
         display_msg = True
         check=True
         # return redirect('home-page') 
@@ -70,24 +71,21 @@ def homes(request):
         
         newtask=request.POST.get('task_name')   #html chay imput la je attribute made name dilele te 'task_name'
         users = request.user  # Get the logged-in user
-       
-
+        tasksss = Todo.objects.filter(user=users).count()+1
         add='True'
         task= models.Todo(task_name=newtask,user=users)
         task.save()  
-        tasksss = Todo.objects.filter(user=users).count()+1
     
        
 
     context = {
        
-        'all_tasks':tasks1,
-        'user_authenticated': request.user.is_authenticated,
-        'display':display_msg,
-        'added':add,
-        'check':'check',
-        'taks':tasksss,
-
+            'all_tasks':tasks1,
+            'user_authenticated': request.user.is_authenticated,
+            'display':display_msg,
+            'added':add,
+            'check':'check',
+            'taks':tasksss,
     }
 
     return render(request,'home.html', context)
@@ -105,6 +103,7 @@ def task_list(request):
     else:
         user = request.user
         taskss = Todo.objects.filter(user=user)
+        tasksss =Todo.objects.filter(user=user).count()
         # t=Todo.objects.get(id=1)
         # todo_created_date = t.date
         alll=Todo.objects.all()
@@ -116,7 +115,8 @@ def task_list(request):
           'tasks': taskss,
           'all':alll,
            'time':times,
-           'cur':current_date
+           'cur':current_date,
+           'task_count':tasksss,
         }
         
 
@@ -137,6 +137,7 @@ def deleted_task(request, id):
             task = Todo.objects.get(id=id)
             task.delete()
             deleted = True
+            taskssss =Todo.objects.filter(user=user).count()
         except Todo.DoesNotExist:
             deleted = False
 
@@ -148,7 +149,8 @@ def deleted_task(request, id):
              'delete': deleted,  # Pass the 'deleted' flag in the context
              'all':alll,
              'time':times,
-            'cur':current_date
+            'cur':current_date,
+            'task_count':taskssss,
         }
 
         return render(request, 'task_list.html', context)
