@@ -9,7 +9,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
     
-     
+       footer{
+         {% comment %} border:2px solid black; {% endcomment %}
+         text-align:center;
+         background-color:  #228B22; 
+         padding:20px;
+         width:100%;
+         margin-top:100px;
+       }
+
+       .footer-a{
+         display:inline;
+         color:white;
+       }
 
        a{
           font-size:20px !important;
@@ -238,6 +250,17 @@
       .user-links li{
           margin: 1rem 0;
       }
+      
+      footer{
+        margin-top: 177px;
+        font-size:12px;
+        padding:5px;
+      }
+
+      .footer-an{
+        font-size:4px;
+      }
+
   }
 
     {% comment %} @media screen and (max-width: 1361px){
@@ -376,7 +399,12 @@
 </div> 
 </div> 
 
-
+<footer>
+  <p class="footer-a">
+    Copyright ©2023 All rights reserved | Made by 
+    </p>
+    <a class="footer-an" href="https://github.com/03-prathamesh">Prathamesh Amundkar</a> 
+</footer>
   
 
 
