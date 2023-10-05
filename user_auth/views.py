@@ -67,8 +67,10 @@ def homes(request):
       else: 
         # display_msg=False
         # print(request.user.username)
+        
         newtask=request.POST.get('task_name')   #html chay imput la je attribute made name dilele te 'task_name'
         users = request.user  # Get the logged-in user
+        tasksss = Todo.objects.filter(user=users).count()+1
 
         add='True'
         task= models.Todo(task_name=newtask,user=users)
@@ -83,6 +85,7 @@ def homes(request):
         'display':display_msg,
         'added':add,
         'check':'check',
+        'taks':tasksss,
 
     }
 

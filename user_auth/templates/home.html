@@ -361,7 +361,7 @@
     <nav class="navbar">
         <ul class="nav-links">
             <li><a class="a" href="#">Home</a></li>
-            <li><a  class="a" href="{% url "t_list" %}">Tasks</a></li>
+            <li><a  class="a" href="{% url "t_list" %}">Tasks-<b>{{taks}}</b></a></li>
         </ul>
         <div class="user-links">
           {% if not user.is_authenticated %}
